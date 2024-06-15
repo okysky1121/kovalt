@@ -1,5 +1,3 @@
-export const API_ROOT = 'https://api.cobalt.tools/api'
-
 export interface RequestBody {
   /**
    * URL encoded as URI
