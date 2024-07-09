@@ -1,4 +1,5 @@
 # kovalt
+![kovalt](https://github.com/okysky1121/kovalt/assets/48397257/d21407da-5f28-4f9c-8e0c-7d979776235d)
 
 Welcome to **kovalt**, the TypeScript wrapper for the powerful API provided by [cobalt.tools](https://cobalt.tools/). This repository aims to simplify the interaction with cobalt.tools' robust platform, allowing developers to easily integrate social and media platform downloads into their applications with minimal effort.
 
