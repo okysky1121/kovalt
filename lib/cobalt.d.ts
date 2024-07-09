@@ -1,11 +1,4 @@
-export interface RequestBody {
-  /**
-   * URL encoded as URI
-   *
-   * **must** be included in every request
-   */
-  url: string
-
+export interface RequestBodyOption {
   /**
    * applies only to youtube downloads
    *
@@ -87,6 +80,15 @@ export interface RequestBody {
    * @default false
    */
   tiktokH265: boolean
+}
+
+export interface RequestBody extends RequestBodyOption {
+  /**
+   * URL encoded as URI
+   *
+   * **must** be included in every request
+   */
+  url: string
 }
 
 export interface ResponseBody {
