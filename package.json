@@ -2,8 +2,14 @@
   "name": "kovalt",
   "version": "0.1.0",
   "description": "cobalt.tools wrapper",
-  "main": "dist/kovalt.js",
   "license": "MIT",
+  "main": "dist/kovalt.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "prettier": "^3.3.1",
     "typescript": "^5.4.5"
