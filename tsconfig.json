@@ -6,6 +6,6 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "dist",
-    "removeComments": true
+    "declaration": true
   }
 }
