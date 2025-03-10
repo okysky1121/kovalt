@@ -5,7 +5,7 @@ import {
   ServerInfo,
 } from './cobalt'
 
-const KOVALT_API_ROOT_URL = 'https://api.cobalt.tools/api'
+// const KOVALT_API_ROOT_URL = 'https://api.cobalt.tools/api'
 const DEFAULT_KOVALT_API_HEADERS = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
@@ -36,29 +36,34 @@ function buildRequestBody(
   }
 }
 
-function resolveURL(path: string) {
-  return `${KOVALT_API_ROOT_URL}${path}`
-}
+export default class Kovalt {
+  base_url: string
 
-export async function getJSON(
-  url: string,
-  option?: Partial<RequestBodyOption>,
-) {
-  const res = await fetch(resolveURL('/json'), {
-    method: 'POST',
-    headers: DEFAULT_KOVALT_API_HEADERS,
-    body: JSON.stringify(buildRequestBody(url, option)),
-  })
-  const json: ResponseBody = await res.json()
+  constructor(base_url: string) {
+    this.base_url = base_url
+  }
 
-  return json
-}
+  private resolveURL(path: string) {
+    return `${this.base_url}${path}`
+  }
 
-export async function getServerInfo() {
-  const res = await fetch(resolveURL('/serverInfo'), {
-    method: 'GET',
-  })
-  const json: ServerInfo = await res.json()
+  async requestJSON(target_url: string, option?: Partial<RequestBodyOption>) {
+    const res = await fetch(this.resolveURL('/json'), {
+      method: 'POST',
+      headers: DEFAULT_KOVALT_API_HEADERS,
+      body: JSON.stringify(buildRequestBody(target_url, option)),
+    })
+    const json: ResponseBody = await res.json()
 
-  return json
+    return json
+  }
+
+  async requestServerInfo() {
+    const res = await fetch(this.resolveURL('/serverInfo'), {
+      method: 'GET',
+    })
+    const json: ServerInfo = await res.json()
+
+    return json
+  }
 }
