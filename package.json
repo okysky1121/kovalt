@@ -1,6 +1,6 @@
 {
   "name": "kovalt",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "cobalt.tools wrapper",
   "license": "MIT",
   "main": "dist/kovalt.js",
